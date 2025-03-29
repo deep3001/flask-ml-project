@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Predictor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Helvetica Neue', sans-serif;
+        }
+        h2, h3 {
+            color: #343a40;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter House Size (sq ft) to Predict Price</h2>
+        <div class="form-container">
+            <form action="/predict" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="size" placeholder="Enter house size" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Predict</button>
+            </form>
+            {% if prediction_text %}
+                <h3>{{ prediction_text }}</h3>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
+
